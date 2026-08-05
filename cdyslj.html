@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的影视订阅配置</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;font-family: "微软雅黑",sans-serif;}
+        body{background-color: #1a1a1a;color: #fff;padding: 20px;max-width: 800px;margin: 0 auto;}
+        .item{background: #2d2d2d;padding: 16px;border-radius: 10px;margin-bottom: 15px;}
+        .title{font-size: 18px;margin-bottom: 8px;color: #42a5f5;}
+        .url{word-break: break-all;color: #cccccc;font-size: 13px;margin: 10px 0;padding:8px;background:#111;border-radius:6px;}
+        button{
+            background: #2196F3;
+            border: none;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:active{background:#1976D2;}
+        .tip{color:#4ade80;font-size:12px;margin-top:6px;display:none;}
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;margin-bottom:30px;">TVBox/影视仓 订阅接口</h2>
+
+    <!-- 第一条线路（黄色圈出来的加速线路） -->
+    <div class="item">
+        <div class="title">测试线路（Github加速）</div>
+        <div class="url" id="link1">https://gh-proxy.com/https://raw.githubusercontent.com/tushen6/Tomorrow/master/lmw.json</div>
+        <button onclick="copyText('link1')">一键复制链接</button>
+        <div class="tip" id="tip1">✅ 复制成功！直接粘贴到软件</div>
+    </div>
+
+    <!-- 原生Github线路 -->
+    <div class="item">
+        <div class="title">Github原生线路</div>
+        <div class="url" id="link2">https://raw.githubusercontent.com/tushen6/Tomorrow/master/lmw.json</div>
+        <button onclick="copyText('link2')">一键复制链接</button>
+        <div class="tip" id="tip2">✅ 复制成功！直接粘贴到软件</div>
+    </div>
+
+    <!-- 备用线路 -->
+    <div class="item">
+        <div class="title">影用仓库备用源</div>
+        <div class="url" id="link3">https://gh-proxy.com/https://raw.githubusercontent.com/tushen6/Tomorrow/master/tvbox.json</div>
+        <button onclick="copyText('link3')">一键复制链接</button>
+        <div class="tip" id="tip3">✅ 复制成功！直接粘贴到软件</div>
+    </div>
+
+<script>
+// 一键复制功能
+function copyText(id) {
+    let text = document.getElementById(id).innerText;
+    let input = document.createElement('input');
+    input.value = text;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+
+    // 弹出成功提示
+    let tip = document.getElementById('tip'+id.slice(-1));
+    tip.style.display = 'block';
+    setTimeout(()=>{tip.style.display = 'none'},1500)
+}
+</script>
+</body>
+</html>
