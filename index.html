@@ -2,6 +2,16 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+	<script>
+    (function(){
+    let pwd = prompt("请输入访问提取码");
+    const rightPwd = "8866";
+    if (pwd === null || pwd !== rightPwd) {
+    document.write("<div style='text-align:center;margin-top:100px;color:red;font-size:22px;'>禁止访问</div>");
+    document.close();
+   }
+   })();
+   </script>
 	<title>TV订阅源管理</title>
     <style>
         body{
@@ -297,15 +307,6 @@ async function checkLink(urlId,stateId){
 <p>3.若相关链接侵犯了您的版权，请联系仓库作者，我会第一时间完成删除处理。</p >
 <p>4.所有资源的使用风险由使用者自行承担，仓库作者不承担任何连带法律责任。</p >
 </div>
-<script>
-window.onload = function(){
-let pwd = prompt("请输入访问提取码");
-const rightPwd = "8866";
-if (pwd === null || pwd !== rightPwd) {
-document.body.innerHTML = "<div style='text-align:center;margin-top:100px;color:red;font-size:22px;'>禁止访问</div>";
-}
-}
-</script>
 </body>
 </html>
 
