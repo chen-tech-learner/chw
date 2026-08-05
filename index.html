@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-   <script>var accessCode=prompt("请输入访问提取码");if(accessCode!="8866"){document.documentElement.innerHTML="<div style='text-align:center;margin-top:100px;color:red;font-size:26px;font-weight:bold;'>禁止访问</div>";}</script>
+<script>
+var key = prompt("请输入访问提取码");
+if(key !== "8866"){
+document.write('<html><head><meta charset="UTF-8"></head><body style="background:#000;text-align:center;padding-top:120px;font-size:28px;color:red;font-weight:bold">禁止访问</body></html>');
+document.close();
+}
+</script>
 	<meta charset="UTF-8">
 	<title>TV订阅源管理</title>
     <style>
