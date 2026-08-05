@@ -1,78 +1,265 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的影视订阅配置</title>
+    <title>TV订阅源管理</title>
     <style>
-        *{margin: 0;padding: 0;box-sizing: border-box;font-family: "微软雅黑",sans-serif;}
-        body{background-color: #1a1a1a;color: #fff;padding: 20px;max-width: 800px;margin: 0 auto;}
-        .item{background: #2d2d2d;padding: 16px;border-radius: 10px;margin-bottom: 15px;}
-        .title{font-size: 18px;margin-bottom: 8px;color: #42a5f5;}
-        .url{word-break: break-all;color: #cccccc;font-size: 13px;margin: 10px 0;padding:8px;background:#111;border-radius:6px;}
-        button{
-            background: #2196F3;
-            border: none;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
+        body{
+            background:#121212;
+            color:#fff;
+            padding:30px;
+            font-family:微软雅黑;
         }
-        button:active{background:#1976D2;}
-        .tip{color:#4ade80;font-size:12px;margin-top:6px;display:none;}
+        table{
+            width:100%;
+            border-collapse: collapse;
+        }
+        td,th{
+            padding:12px 10px;
+            border-bottom:1px solid #2b2b2b;
+        }
+        .url{
+            word-break: break-all;
+            max-width:600px;
+        }
+        .btn-check{
+            background:#1677ff;
+            border:none;
+            color:white;
+            padding:6px 12px;
+            border-radius:4px;
+            margin:0 3px;
+        }
+        .btn-copy{
+            background:#36c965;
+            border:none;
+            color:white;
+            padding:6px 12px;
+            border-radius:4px;
+        }
+        .status-ok{
+            color:#36c965;
+        }
+        .status-fail{
+            color:#f53f3f;
+        }
+        .tip{
+            color:#36c965;
+            position:fixed;
+            top:20px;
+            left:50%;
+            transform:translateX(-50%);
+            background:#222;
+            padding:8px 20px;
+            border-radius:6px;
+            display:none;
+        }
     </style>
 </head>
 <body>
-    <h2 style="text-align:center;margin-bottom:30px;">TVBox/影视仓 订阅接口</h2>
-
-    <!-- 第一条线路（黄色圈出来的加速线路） -->
-    <div class="item">
-        <div class="title">测试线路（Github加速）</div>
-        <div class="url" id="link1">https://gh-proxy.com/https://raw.githubusercontent.com/tushen6/Tomorrow/master/lmw.json</div>
-        <button onclick="copyText('link1')">一键复制链接</button>
-        <div class="tip" id="tip1">✅ 复制成功！直接粘贴到软件</div>
-    </div>
-
-    <!-- 原生Github线路 -->
-    <div class="item">
-        <div class="title">Github原生线路</div>
-        <div class="url" id="link2">https://raw.githubusercontent.com/tushen6/Tomorrow/master/lmw.json</div>
-        <button onclick="copyText('link2')">一键复制链接</button>
-        <div class="tip" id="tip2">✅ 复制成功！直接粘贴到软件</div>
-    </div>
-
-    <!-- 备用线路 -->
-    <div class="item">
-        <div class="title">影用仓库备用源</div>
-        <div class="url" id="link3">https://gh-proxy.com/https://raw.githubusercontent.com/tushen6/Tomorrow/master/tvbox.json</div>
-        <button onclick="copyText('link3')">一键复制链接</button>
-        <div class="tip" id="tip3">✅ 复制成功！直接粘贴到软件</div>
-    </div>
+<div class="tip" id="copyTip">链接已复制到剪贴板</div>
+<table>
+    <thead>
+        <tr>
+            <th>链接 URL</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="url" id="u1">https://gh-proxy.com/https://raw.githubusercontent.com/tushen6/Tomorrow/master/lmw.json</td>
+            <td class="state" id="s1">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u1','s1')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u1')">复制</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="url" id="u2">https://gh-proxy.com/https://raw.githubusercontent.com/tushen6/Tomorrow/refs/heads/master/caiji.json</td>
+            <td class="state" id="s2">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u2','s2')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u2')">复制</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="url" id="u3">https://raw.gitcode.com/jvftibcs-jbduyh/021/raw/main/18.json</td>
+            <td class="state" id="s3">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u3','s3')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u3')">复制</button>
+		    </td>
+        </tr>
+		<tr>
+            <td class="url" id="u4">https://gh-proxy.org/https://github.com/tianze889/tvds/raw/refs/heads/main/tvdc.json</td>
+            <td class="state" id="s4">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u4','s4')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u4')">复制</button>
+		    </td>
+        </tr>
+		<tr>
+			<td class="url" id="u5">https://0.12yue.de5.net/0/x4.json</td>
+            <td class="state" id="s5">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u5','s5')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u5')">复制</button>
+            </td>
+        </tr>
+	    <tr>
+            <td class="url" id="u6">https://gh-proxy.com/https://raw.githubusercontent.com/zheng197600/tvbox/refs/heads/main/0821.json</td>
+            <td class="state" id="s6">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u6','s6')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u6')">复制</button>
+            </td>
+        </tr>
+		<tr>
+		    <td class="url" id="u7">https://gh-proxy.com/https://raw.githubusercontent.com/FGBLH/HKL/refs/heads/main/%E8%87%B3%E5%B0%8A.m3u</td>
+            <td class="state" id="s7">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u7','s7')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u7')">复制</button>
+            </td>
+        </tr>
+        <tr>
+		    <td class="url" id="u8">https://gh-proxy.com/https://raw.githubusercontent.com/fafa002/yf2025/refs/heads/main/yiyifafa.txt</td>
+            <td class="state" id="s8">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u8','s8')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u8')">复制</button>
+            </td>
+        </tr>
+	    <tr>
+		    <td class="url" id="u9">https://gh-proxy.com/https://raw.githubusercontent.com/807080747/zv/refs/heads/main/sese.txt</td>
+            <td class="state" id="s9">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u9','s9')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u9')">复制</button>
+            </td>
+        </tr>
+	    <tr>
+		    <td class="url" id="u10">http://www.52top.com.cn:678/downloads/migu.txt</td>
+            <td class="state" id="s10">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u10','s10')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u10')">复制</button>
+            </td>
+        </tr>
+		<tr>
+		    <td class="url" id="u11">https://d.kstore.dev/download/9565/小新TV.txt</td>
+            <td class="state" id="s11">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u11','s11')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u11')">复制</button>
+            </td>
+        </tr>
+		<tr>
+		    <td class="url" id="u12">https://gh-proxy.com/https://raw.githubusercontent.com/Ameria22/TV/refs/heads/main/data/01%E6%8E%A2%E8%8A%B1%E7%BA%A6%E7%82%AE_20260417_024507.m3u</td>
+            <td class="state" id="s12">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u12','s12')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u12')">复制</button>
+            </td>
+        </tr>
+		<tr>
+		    <td class="url" id="u13">https://gh-proxy.com/https://raw.githubusercontent.com/FGBLH/HKL/refs/heads/main/xxx视频资源.txt</td>
+            <td class="state" id="s13">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u13','s13')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u13')">复制</button>
+            </td>
+        </tr>
+        <tr>
+		    <td class="url" id="u14">https://gh-proxy.com/https://raw.githubusercontent.com/mzky/checklist/refs/heads/master/itvlist.m3u</td>
+            <td class="state" id="s14">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u14','s14')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u14')">复制</button>
+            </td>
+        </tr>
+         <tr>
+		    <td class="url" id="u15">https://gh-proxy.com/https://raw.githubusercontent.com/yigedashu/xwck/refs/heads/main/20260103.json</td>
+            <td class="state" id="s15">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u15','s15')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u15')">复制</button>
+            </td>
+        </tr>
+	    <tr>
+		    <td class="url" id="u16">http://ko.zoho.to/ii/63143.txt</td>
+            <td class="state" id="s16">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u16','s16')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u16')">复制</button>
+            </td>
+        </tr>
+	    <tr>
+		    <td class="url" id="u17">https://gh-proxy.com/https://raw.githubusercontent.com/q1017673817/iptvz/refs/heads/main/zubo_all.txt</td>
+            <td class="state" id="s17">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u17','s17')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u17')">复制</button>
+            </td>
+        </tr>
+	    <tr>
+		    <td class="url" id="u18">https://gh-proxy.com/https://raw.githubusercontent.com/jia070310/lemonTV/refs/heads/main/iptv-fe.m3u</td>
+            <td class="state" id="s18">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u18','s18')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u18')">复制</button>
+            </td>
+        </tr>
+         <tr>
+		    <td class="url" id="u19">https://gh-proxy.org/https://raw.githubusercontent.com/energy65/yl/refs/heads/main/forever.json</td>
+            <td class="state" id="s19">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u19','s19')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u19')">复制</button>
+            </td>
+        </tr>
+         <tr>
+		    <td class="url" id="u20">https://0.12yue.de5.net/0/x4.json</td>
+            <td class="state" id="s20">-</td>
+            <td>
+                <button class="btn-check" onclick="checkLink('u20','s20')">检测</button>
+                <button class="btn-copy" onclick="copyUrl('u20')">复制</button>
+            </td>
+        </tr>
+</tbody>
+</table>
 
 <script>
-// 一键复制功能
-function copyText(id) {
+//复制功能
+function copyUrl(id){
     let text = document.getElementById(id).innerText;
     let input = document.createElement('input');
     input.value = text;
     document.body.appendChild(input);
     input.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     document.body.removeChild(input);
-
-    // 弹出成功提示
-    let tip = document.getElementById('tip'+id.slice(-1));
+    //提示
+    let tip = document.getElementById('copyTip');
     tip.style.display = 'block';
-    setTimeout(()=>{tip.style.display = 'none'},1500)
+    setTimeout(()=>tip.style.display='none',1200);
+}
+
+//单独检测按钮
+async function checkLink(urlId,stateId){
+    let url = document.getElementById(urlId).innerText;
+    let stateDom = document.getElementById(stateId);
+    stateDom.innerText = "检测中...";
+    try{
+        await fetch(url,{method:'HEAD',mode:'no-cors'});
+        stateDom.innerText = "正常";
+        stateDom.className = "state status-ok";
+    }catch{
+        stateDom.innerText = "失效";
+        stateDom.className = "state status-fail";
+    }
 }
 </script>
-<div style="margin-top:40px;padding:20px;border-top:1px solid #444;color:#aaa;font-size:12px;line-height:1.8;">
-<h4>免责声明</h4>
-<p>1.本页面所有m3u、json配置文件与直播链接均来自公开网络收集，仅用于个人学习、技术测试使用。</p >
-<p>2.禁止用于商业运营、公共场所播放、大批量对外分享传播。</p >
-<p>3.若相关链接侵犯了您的版权，请联系仓库作者，我会第一时间完成删除处理。</p >
-<p>4.所有资源的使用风险由使用者自行承担，仓库作者不承担任何连带法律责任。</p >
-</div>
 </body>
 </html>
