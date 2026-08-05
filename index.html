@@ -2,12 +2,11 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-   <script>
-   let pwd = prompt("请输入访问提取码");
-   // 修改引号内为你自己的4位密码
-   if(pwd !== "8866"){
-   alert("密码错误，无法进入");
-    history.back();
+    <script>
+    let pwd = prompt("请输入访问提取码");
+    const rightPwd = "8866";
+    if (pwd === null || pwd !== rightPwd) {
+    document.body.innerHTML = "<div style='text-align:center;margin-top:100px;color:red;'>禁止访问</div>";
   }
    </script>
 	<title>TV订阅源管理</title>
