@@ -39,7 +39,7 @@
       "searchable": 1
     },
     {
-      "key": "光速资源",
+      "key": "gszy",
       "name": "💓‍光速资源",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod",
@@ -53,7 +53,6 @@
         "科幻片",
         "战争片",
         "剧情片",
-        "片",
         "记录片",
         "大陆剧",
         "欧美剧",
@@ -69,7 +68,7 @@
       ]
     },
     {
-      "key": "电影天堂资源",
+      "key": "dyttzy",
       "name": "💓‍电影天堂资源",
       "type": 1,
       "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/",
@@ -78,7 +77,7 @@
       "filterable": 0
     },
     {
-      "key": "天涯资源",
+      "key": "tyzy",
       "name": "💓‍天涯资源",
       "type": 1,
       "api": "https://tyyszy.com/api.php/provide/vod/",
@@ -87,7 +86,7 @@
       "filterable": 0
     },
     {
-      "key": "暴风资源",
+      "key": "bfzy",
       "name": "💓‍暴风资源",
       "type": 1,
       "api": "https://bfzyapi.com/api.php/provide/vod/",
@@ -96,7 +95,7 @@
       "filterable": 0
     },
     {
-      "key": "360资源",
+      "key": "360zy",
       "name": "💓‍360资源",
       "type": 1,
       "api": "https://360zy.com/api.php/provide/vod/",
@@ -105,7 +104,7 @@
       "filterable": 0
     },
     {
-      "key": "iqiyi资源",
+      "key": "iqiyizy",
       "name": "💓‍奇艺资源",
       "type": 1,
       "api": "https://www.iqiyizyapi.com/api.php/provide/vod/",
@@ -114,7 +113,7 @@
       "filterable": 0
     },
     {
-      "key": "极速资源",
+      "key": "jszy",
       "name": "💓‍极速资源",
       "type": 1,
       "api": "https://jszyapi.com/api.php/provide/vod/",
@@ -123,7 +122,7 @@
       "filterable": 0
     },
     {
-      "key": "魔都资源",
+      "key": "mdzy",
       "name": "💓‍魔都资源",
       "type": 1,
       "api": "https://www.mdzyapi.com/api.php/provide/vod/",
@@ -132,7 +131,7 @@
       "filterable": 0
     },
     {
-      "key": "豆瓣资源",
+      "key": "dbzy",
       "name": "💓‍豆瓣资源",
       "type": 1,
       "api": "https://dbzy.tv/api.php/provide/vod/",
@@ -141,7 +140,7 @@
       "filterable": 0
     },
     {
-      "key": "xml_茅台资源",
+      "key": "xml_mtzy",
       "name": "💓‍茅台资源",
       "type": 0,
       "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml/",
@@ -150,7 +149,7 @@
       "filterable": 1
     },
     {
-      "key": "速播资源",
+      "key": "sbzy",
       "name": "💓‍速播资源",
       "type": 1,
       "api": "https://subocaiji.com/api.php/provide/vod",
@@ -159,7 +158,7 @@
       "filterable": 0
     },
     {
-      "key": "U酷资源",
+      "key": "Ukzy",
       "name": "💓‍悠酷资源",
       "type": 1,
       "api": "https://api.ukuapi88.com/api.php/provide/vod",
@@ -168,7 +167,7 @@
       "filterable": 0
     },
     {
-      "key": "量子资源站",
+      "key": "lzzyz",
       "name": "💓‍量子资源",
       "type": 1,
       "api": "https://cj.lziapi.com/api.php/provide/vod/",
@@ -177,7 +176,7 @@
       "filterable": 0
     },
     {
-      "key": "豪华资源",
+      "key": "hhzy",
       "name": "💓‍豪华资源",
       "type": 1,
       "api": "https://hhzyapi.com/api.php/provide/vod/",
@@ -186,7 +185,7 @@
       "filterable": 0
     },
     {
-      "key": "最大资源",
+      "key": "zdzy",
       "name": "💓‍最大资源",
       "type": 1,
       "api": "https://api.zuidapi.com/api.php/provide/vod/",
@@ -258,7 +257,7 @@
       "changeable": 0
     },
     {
-      "key": "賤賤",
+      "key": "jianjian",
       "name": "💓贱片┃秒播💓",
       "type": 3,
       "api": "csp_WexAiJianPianGuard",
@@ -303,8 +302,8 @@
       "jar": "https://ncstatic.clewm.net/rsrc/2026/0622/18/bb6ee1729c28414496add334ea3ea00a.png;md5;2C09761B17B36A3C58291EB6436C3542"
     },
     {
-      "key": "瓜子影视",
-      "name": "💓‍┃瓜子②┃影视",
+      "key": "gzys",
+      "name": "💓‍┃瓜子②┃影视1",
       "type": 3,
       "api": "csp_Gz360",
       "jar": "https://gitee.com/xiayede/tvbox/raw/master/spider.jar",
@@ -313,7 +312,7 @@
       "filterable": 1
     },
     {
-      "key": "鹊桥",
+      "key": "queqiao",
       "name": "💓‍鹊桥｜影视",
       "type": 3,
       "api": "csp_XBPQ",
@@ -327,7 +326,7 @@
       }
     },
     {
-      "key": "七味影院",
+      "key": "qwys",
       "name": "💓‍┃七味┃影视",
       "type": 3,
       "api": "csp_XBPQ",
@@ -358,7 +357,7 @@
       }
     },
     {
-      "key": "橘皮",
+      "key": "juepi",
       "name": "💓‍┃橘皮┃影视",
       "type": 3,
       "api": "csp_Jpys",
@@ -367,7 +366,7 @@
       "ext": "7lj763gg402i7942463j9j9jh84l8798l8gli652828g332i"
     },
     {
-      "key": "剧评",
+      "key": "juping",
       "name": "💓‍┃剧评┃影视",
       "type": 3,
       "api": "csp_Jpys",
@@ -376,7 +375,7 @@
       "ext": "7lj763gg402i7942463j9j9jh8579590k3hjii5gi4i73l2k5l"
     },
     {
-      "key": "极影",
+      "key": "jiying",
       "name": "💓‍┃极影┃影视",
       "type": 3,
       "api": "https://fastlink.cokey.xyz/f/5lO2Fd/%E6%9E%81%E5%BD%B1.js",
@@ -386,7 +385,7 @@
       "ext": "http://cmsyun2.qijiyun.vip/api.php/app/"
     },
     {
-      "key": "SVIP影视",
+      "key": "SVIPsy",
       "name": "💓‍┃VIP💎┃影视",
       "type": 3,
       "api": "csp_XBPQ",
@@ -394,7 +393,7 @@
       "ext": "https://yydsys.top/duo/json/vip.json"
     },
     {
-      "key": "狐狸电影",
+      "key": "hlys",
       "name": "💓‍┃狐狸┃影视",
       "type": 3,
       "api": "csp_XBPQ",
@@ -411,14 +410,14 @@
       }
     },
     {
-      "key": "热播影视大全",
+      "key": "rbysdq",
       "name": "💓‍热播",
       "type": 3,
       "api": "https://d.kstore.dev/download/17135/自用/RJAPP.min.js",
       "ext": "http://v.rbotv.cn"
     },
     {
-      "key": "央视PY",
+      "key": "ysPY",
       "name": "💓‍┃央视┃栏目",
       "type": 3,
       "api": "https://yydsys.top/duo/py/央视.py",
@@ -1041,7 +1040,7 @@
       }
     },
     {
-      "key": "少儿教育",
+      "key": "serjy",
       "name": "💓少儿┃教育💓",
       "type": 3,
       "api": "csp_BiliGuard",
@@ -1057,7 +1056,7 @@
       }
     },
     {
-      "key": "小学课堂",
+      "key": "xxkt",
       "name": "💓小学┃课堂💓",
       "type": 3,
       "api": "csp_BiliGuard",
@@ -1073,7 +1072,7 @@
       }
     },
     {
-      "key": "初中课堂",
+      "key": "czkt",
       "name": "💓初中┃课堂💓",
       "type": 3,
       "api": "csp_BiliGuard",
@@ -1089,7 +1088,7 @@
       }
     },
     {
-      "key": "高中教育",
+      "key": "gzjy",
       "name": "💓高中┃课堂💓",
       "type": 3,
       "api": "csp_BiliGuard",
